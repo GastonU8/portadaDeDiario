@@ -148,4 +148,16 @@ body {
     background: #fff;
     border-top: 1px solid #ddd;
   }
+
+  .nav-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
   

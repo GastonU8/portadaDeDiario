@@ -1,4 +1,29 @@
 /* Mobile First → el menú .nav oculto, .hamburguesa visible */
+/* Mobile First (está oculto el menú y se ve el ícono ☰) */
+.nav ul {
+    display: none;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  /* En desktop: se oculta el ícono y se muestra el menú */
+  @media (min-width: 768px) {
+    .nav ul {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+  
+    .nav-toggle {
+      display: none;
+    }
+  }
+  
 
 @media (min-width: 768px) {
     /* Header */
