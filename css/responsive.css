@@ -1,0 +1,33 @@
+/* Mobile First → el menú .nav oculto, .hamburguesa visible */
+
+@media (min-width: 768px) {
+    /* Header */
+    .header {
+      flex-direction: row;
+      position: relative;
+    }
+    .header .hamburguesa {
+      display: none;
+    }
+  
+    /* Menú horizontal */
+    .nav {
+      display: flex;
+      justify-content: center;
+    }
+  
+    /* Layout principal */
+    .contenedor {
+      flex-direction: row;
+    }
+    .noticia-principal {
+      flex: 2;
+    }
+    .noticias-secundarias {
+      flex: 1;
+    }
+    .publicidad {
+      flex: 1;
+    }
+  }
+  

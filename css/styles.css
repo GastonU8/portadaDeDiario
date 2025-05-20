@@ -1,0 +1,151 @@
+/* reset.css permanece igual */
+
+/* — Fondo general con ligero degradado — */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #e1e5ea; /* gris muy claro */
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* — Header con degradado y borde inferior — */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center;
+    position: relative;
+    border-bottom: 4px solid #e94560;
+  }
+  .header .logo {
+    font-size: 2rem;
+  }
+  .header .fecha {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  .header .hamburguesa {
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+  }
+  
+  /* — Navegación (desktop) con fondo semitransparente y separación — */
+  .nav {
+    display: none;
+    background: rgba(22,33,62,0.9);
+    padding: 12px 0;
+  }
+  .nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: 500;
+    transition: color .3s, border-bottom .3s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+  }
+  .nav a:hover {
+    color: #e94560;
+    border-bottom-color: #e94560;
+  }
+  
+  /* — Contenedor principal con padding y separación — */
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  
+  /* — Noticia principal con fondo blanco y sombra — */
+  .noticia-principal {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-left: 6px solid #e94560;
+  }
+  .noticia-principal img {
+    width: 100%;
+    display: block;
+  }
+  .noticia-principal h2 {
+    margin: 15px;
+    font-size: 1.75rem;
+    color: #1a1a2e;
+  }
+  .noticia-principal p {
+    margin: 0 15px 15px;
+  }
+  .noticia-principal a {
+    display: inline-block;
+    margin: 0 15px 20px;
+    color: #e94560;
+    font-weight: bold;
+  }
+  
+  /* — Título secundario con fondo suave y borde — */
+  .noticias-secundarias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .noticias-secundarias article {
+    background: #fff;
+    padding: 12px 18px;
+    border-left: 4px solid #16213e;
+    border-radius: 4px;
+  }
+  .noticias-secundarias h3 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+  }
+  .noticias-secundarias a {
+    color: #1a1a2e;
+    text-decoration: none;
+    transition: color .3s;
+  }
+  .noticias-secundarias a:hover {
+    color: #e94560;
+  }
+  
+  /* — Publicidad con patrón de fondo y borde punteado — */
+  .publicidad {
+    background: #fff url('https://via.placeholder.com/20/eeeeee/eeeeee') repeat;
+    padding: 20px;
+    text-align: center;
+    border: 2px dashed #e94560;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .publicidad p {
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: #16213e;
+  }
+  .publicidad img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  
+  /* — Footer con fondo claro y texto centrado — */
+  .footer {
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.85rem;
+    color: #666;
+    background: #fff;
+    border-top: 1px solid #ddd;
+  }
+  
