@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Validación Formularios</title>
+  <link rel="stylesheet" href="css/subscripcion.css" />
+</head>
+<body>
+  <main class="form-container">
+    <h1 id="form-title">VALIDACIÓN<br>FORMULARIOS</h1>
+
+    <form id="formulario">
+      <div class="form-group" id="grupo-usuario">
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" id="usuario" />
+        <p class="form-input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guion bajo.</p>
+      </div>
+
+      <div class="form-group" id="grupo-nombre">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" />
+        <p class="form-input-error">El nombre debe tener al menos 6 letras y un espacio.</p>
+      </div>
+
+      <div class="form-group" id="grupo-password">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" id="password" />
+        <p class="form-input-error">Debe tener al menos 8 caracteres, incluir letras y números.</p>
+      </div>
+
+      <div class="form-group" id="grupo-password2">
+        <label for="password2">Repetir Contraseña</label>
+        <input type="password" name="password2" id="password2" />
+        <p class="form-input-error">Ambas contraseñas deben ser iguales.</p>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <script src="script.js/subscripcion.js"></script>
+</body>
+</html>
