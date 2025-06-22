@@ -44,10 +44,9 @@ const validarCampo = (expresion, input, campo) => {
 };
 
 const validarPassword2 = () => {
-  const inputPassword1 = document.getElementById('password');
-  const inputPassword2 = document.getElementById('password2');
-  const iguales = inputPassword1.value === inputPassword2.value && inputPassword1.value.length > 0;
-
+  const p1 = document.getElementById('password').value;
+  const p2 = document.getElementById('password2').value;
+  const iguales = p1 === p2 && p1.length > 0;
   actualizarEstado('password2', iguales);
   campos['password2'] = iguales;
 };
@@ -63,21 +62,64 @@ const actualizarEstado = (campo, valido) => {
     }
   }
 };
-
 inputs.forEach((input) => {
   input.addEventListener('keyup', validarFormulario);
   input.addEventListener('blur', validarFormulario);
 });
 
+const modal = document.getElementById('modal');
+const modalMensaje = document.getElementById('modal-message');
+const cerrarModalBtn = document.getElementById('cerrar-modal');
+
+cerrarModalBtn.addEventListener('click', () => {
+  modal.classList.add('oculto');
+});
+
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
-  const todosValidos = Object.values(campos).every(v => v === true);
+  const todosValidos = Object.values(campos).every(v => v);
+
   if (todosValidos) {
-    alert("Formulario enviado correctamente.");
-    formulario.reset();
-    Object.keys(campos).forEach(k => campos[k] = false);
-    document.querySelectorAll('.form-group').forEach(g => g.classList.remove('correct', 'incorrect'));
+    const datos = new URLSearchParams(new FormData(formulario)).toString();
+
+    fetch(`https://jsonplaceholder.typicode.com/posts?${datos}`)
+      .then(res => {
+        if (res.ok) {
+          modalMensaje.textContent = "Datos enviados correctamente.";
+          modal.classList.remove('oculto');
+          guardarEnLocalStorage();
+          formulario.reset();
+          Object.keys(campos).forEach(k => campos[k] = false);
+          document.querySelectorAll('.form-group').forEach(g => g.classList.remove('correct', 'incorrect'));
+        } else {
+          throw new Error("Error en el envío");
+        }
+      })
+      .catch(err => {
+        modalMensaje.textContent = "Hubo un error al enviar los datos.";
+        modal.classList.remove('oculto');
+      });
+
   } else {
-    alert("Por favor corrige los errores en el formulario.");
+    alert("Por favor, corrige los errores en el formulario.");
   }
 });
+
+const guardarEnLocalStorage = () => {
+  const datos = {};
+  inputs.forEach(input => {
+    datos[input.name] = input.value;
+  });
+  localStorage.setItem('formularioSubscripcion', JSON.stringify(datos));
+};
+
+window.onload = () => {
+  const guardado = localStorage.getItem('formularioSubscripcion');
+  if (guardado) {
+    const datos = JSON.parse(guardado);
+    for (let key in datos) {
+      const campo = document.querySelector(`[name="${key}"]`);
+      if (campo) campo.value = datos[key];
+    }
+  }
+};
